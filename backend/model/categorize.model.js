@@ -1,10 +1,11 @@
-const mongoose = quire("mongoose");
+const mongoose = require("mongoose");
 
 
 const categorizeSchema = mongoose.Schema({
     question: String,
     categories: [String],
-    answer:String
+    item: [String],
+    
 }, {
     versionKey: false,
   });

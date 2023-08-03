@@ -15,6 +15,14 @@ categorizeRouter.post("/addquestion", async(req,res) => {
    }
 });
 
-categorizeRouter.get("/questions", async(req,res) => {
-    
-})
+categorizeRouter.get("/", async(req,res) => {
+    try {
+      const questions = await categorizeModel.find();
+      res.status(200).send(questions);
+    } catch (error) {
+      req.status(400).send({msg:error.message})
+    }
+});
+
+
+module.exports = {categorizeRouter}

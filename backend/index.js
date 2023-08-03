@@ -11,10 +11,15 @@ app.use(cors());
 
 
 const {connection} = require("./db");
+const {categorizeRouter} = require("./routes/categorize.route");
+
+
 
 app.get('/', (req,res) => {
     res.send({"msg": "Welcome to custom form builder"})
 });
+
+app.use("/questions", categorizeRouter)
 
 
 app.listen(process.env.port, async() => {
