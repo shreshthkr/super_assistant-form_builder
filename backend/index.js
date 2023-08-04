@@ -12,6 +12,7 @@ app.use(cors());
 
 const {connection} = require("./db");
 const {categorizeRouter} = require("./routes/categorize.route");
+const { comprehensionRouter } = require("./routes/comprehension.route");
 
 
 
@@ -20,7 +21,7 @@ app.get('/', (req,res) => {
 });
 
 app.use("/questions", categorizeRouter)
-
+app.use("/comprehension", comprehensionRouter)
 
 app.listen(process.env.port, async() => {
     try {
